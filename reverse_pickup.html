@@ -1,0 +1,1002 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/custom.css">
+	<link rel="stylesheet" type="text/css" href="css/custom-style.css">
+	<link rel="stylesheet" type="text/css" href="css/modal.css">
+    <title>Booking Form</title>
+	<link rel="icon" href="image/cube-logo.png">
+</head>
+<body id="body" style="background-color: #F0F0F0;">
+    <nav class="navbar hide navbar-expand d-flex flex-column align-item-start" id="sidebar">
+        <div class="logo-content">
+            <a href="#" class="navbar-brand">
+                <img src="image/undraw_male_avatar_323b.png" alt="logo Image">
+                <span class="logo-name display-9">ABCD</span>
+            </a>
+        </div>
+        <ul class="navbar-nav d-flex flex-column">
+            <li class="nav-item">
+                <a href="home.html" class="nav-link">
+                    <i class="fas fa-home"></i>
+                    <span class="link-name">Dashboard</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="ordertable.html" class="nav-link">
+                    <i class="fas fa-cart-plus"></i>
+                    <span class="link-name">Order</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="shipmenttable.html" class="nav-link">
+                    <i class="fas fa-cubes"></i>
+                    <span class="link-name">Shipment</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="financeTable.html" class="nav-link">
+                    <i class="fas fa-wallet"></i>
+                    <span class="link-name">Finance & COD</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="weight-discrepency.html" class="nav-link">
+                    <i class="fas fa-weight"></i>
+                    <span class="link-name">Weight Panel</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="pickup-request.html" class="nav-link">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="link-name">PickUp</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="ndr_table.html" class="nav-link">
+                    <i class="far fa-bell"></i>
+                    <span class="link-name">NDR Management</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">
+                    <i class="fas fa-flag-checkered"></i>
+                    <span class="link-name">Report</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">
+                    <i class="fas fa-cogs"></i>
+                    <span class="link-name">Settings</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <span class="link-name">Escaletion</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">
+                    <i class="fas fa-calculator"></i>
+                    <span class="link-name">Check Pincode</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <div class="home-container">
+        <section class="nav-section">
+            <nav>
+                <div class="sidebar-btn">
+                    <i class="fas fa-bars" id="toogle-btn"></i>
+                    <span>Dashboard</span>
+                </div>
+				<div class="wallet-content">
+					<a href="#">
+						<span class="bal_val">Balance:</span>
+						<span class="balance">₹ 12345</span>
+					</a>
+				</div>
+                <div class="search-box">
+                    <input type="text" id="search-text" placeholder="search....">
+                    <i class="fas fa-search"></i>
+                </div>
+				<div class="order_tab">
+					<a href="#">
+						<i class="fa-sharp fa-solid fa-cart-plus me-1"></i>
+						<span>Create Order</span>
+					</a>
+				</div>
+                <div class="profile-content">
+                    <a href="#">
+						<img src="image/undraw_male_avatar_323b.png" alt="profile">
+					</a>
+                    <a href="#">
+                        <!--<span class="user-name">Profile name</span>-->
+                        <i class="fas fa-power-off" id="show-hide-btn"></i>
+                    </a>
+                </div>
+            </nav>
+        </section>
+        <section class="task-content">
+            <div class="container-fluid mt-2">
+				<div class="row justify-content-center m-auto">
+					<div class="col-lg-10 col-md-10 col-sm-12 col-12">
+						<div class="msg-box">
+                        	<div class="success text-center">
+                            	<p>Success</p>
+                            </div>
+                            <div class="failed text-center">
+                                <p>Failed</p>
+                            </div>
+                        </div>
+						<div class="form-container">
+							<form id="booking_form" enctype="multipart/form-data">
+								<!-- For Dekstop View-->
+								<div class="row m-auto justify-content-start d-md-block d-none">
+									<div class="col-lg-3 col-md-4 header-text-warper">
+										<h6>Pickup Information</h6>
+									</div>
+								</div>
+								<!-- For Mobile View-->
+								<div class="row m-auto justify-content-center d-md-none d-flex">
+									<div class="col-sm-6 col-6 text-center header-text-warper">
+										<h6>Pickup Information</h6>
+									</div>
+								</div>
+								<!-- For Dekstop & mobile view -->
+								<!-- Buyer Details -->
+								<div class="row m-auto justify-content-start mt-2">
+									<div class="col-lg-3 col-md-3 col-sm-12 col-12">
+										<div class="form-group custom-input-field">
+											<label for="Buyer Name">Pickup name</label>
+											<input type="text" class="form-control-sm custom-input" name="pickup_name" id="pickup_name" placeholder="Pickup contact Full name">
+											<span id="buyer_error"></span>
+										</div>
+									</div>
+									<div class="col-lg-3 col-md-3 col-sm-12 col-12">
+										<div class="form-group  custom-input-field">
+											<label for="Contact No">Pickup Contact No</label>
+											<input type="text" class="form-control-sm custom-input" name="pickup_contact" id="pickup_contact" maxlength="10" placeholder="Pickup Contact">
+											<span id="contct_error"></span>
+										</div>
+									</div>
+									<div class="col-lg-3 col-md-3 col-sm-12 col-12">
+										<div class="form-group  custom-input-field">
+											<label for="Alt No">Alternative Contact</label>
+											<input type="text" class="form-control-sm custom-input" name="secendery_contact" id="secendery_contact" maxlength="10" placeholder="Secendery Contact">
+										</div>
+									</div>
+									<div class="col-lg-3 col-md-3 col-sm-12 col-12">
+										<div class="form-group  custom-input-field">
+											<label for="Buyer Email">Pickup Email</label>
+											<input type="text" class="form-control-sm custom-input" name="pick_up_email" id="pick_up_email" placeholder="Pickup Email ID">
+											<span id="email_error"></span>
+										</div>
+									</div>
+									<div class="col-lg-4 col-md-5 col-sm-12 col-12">
+										<div class="form-group  custom-input-field">
+											<label for="Consignee GST No">Consignee GST No</label>
+											<input type="text" name="consignee_gst" id="consignee_gst" class="custom-input form-control-sm" placeholder="Consignee GST No">
+										</div>
+									</div>
+								</div>
+								<!-- For Dekstop View-->
+								<div class="row m-auto mt-2 justify-content-start d-md-block d-none">
+									<div class="col-lg-3 col-md-4 header-text-warper">
+										<h6>Buyer Address</h6>
+									</div>
+								</div>
+								<!-- For Mobile View-->
+								<div class="row m-auto mt-2 justify-content-center d-md-none d-flex">
+									<div class="col-sm-6 col-6 text-center header-text-warper">
+										<h6>Buyer Address</h6>
+									</div>
+								</div>
+								<!-- For Dekstop & mobile view -->
+								<!-- Buyer Address -->
+								<div class="row m-auto justify-content-start mt-2">
+									<div class="col-lg-12 col-md-12 col-sm-12 col-12">
+										<div class="form-group custom-input-field">
+											<label for="AddressLine-1">Pickup Address Line 1</label>
+											<input type="text" class="form-control-sm custom-input" name="pickup_address_one" id="address_one" placeholder="Pickup Address Line One">
+											<span id="address_error"></span>
+										</div>
+									</div>
+									<div class="col-lg-12 col-md-12 col-sm-12 col-12">
+										<div class="form-group custom-input-field">
+											<label for="AddressLine-2">Pickup Address Line 2</label>
+											<input type="text" class="form-control-sm custom-input" name="address_two" id="pickup_address_two" placeholder="Pickup Second Address Line (optional)">
+										</div>
+									</div>
+									<div class="col-lg-3 col-md-3 col-sm-12 col-12">
+										<div class="form-group custom-input-field">
+											<label for="ZipCode">Pickup Pincode</label>
+											<input type="text" class="form-control-sm custom-input" name="pickup_pincode" id="pickup_pincode" placeholder="Pickup Postal Code">
+											<span id="zip_error"></span>
+										</div>
+									</div>
+									<div class="col-lg-3 col-md-3 col-sm-12 col-12">
+										<div class="form-group custom-input-field">
+											<label for="City Name">Pickup City</label>
+											<input type="text" class="form-control-sm custom-input" name="pickup_city_name" id="pickup_city_name" placeholder="Pickup City Name">
+											<span id="city_error"></span>
+										</div>
+									</div>
+									<div class="col-lg-3 col-md-3 col-sm-12 col-12">
+										<div class="form-group custom-input-field">
+											<label for="state Name">Pickup State</label>
+											<input type="text" class="form-control-sm custom-input" name="pickup_state" id="pickup_state" placeholder="Pickup State Name">
+											<span id="state_error"></span>
+										</div>
+									</div>
+									<div class="col-lg-3 col-md-3 col-sm-12 col-12">
+										<div class="form-group custom-input-field">
+											<label for="country Name">Pickup Country</label>
+											<input type="text" class="form-control-sm custom-input" name="" id="" value="India" readonly>
+											<span>empty</span>
+										</div>
+									</div>
+								</div>
+								<!-- For Dekstop View-->
+								<div class="row m-auto mt-2 justify-content-start d-md-block d-none">
+									<div class="col-lg-3 col-md-4 header-text-warper">
+										<h6>Order & Product Details</h6>
+									</div>
+								</div>
+								<!-- For Mobile View-->
+								<div class="row m-auto mt-2 justify-content-center d-md-none d-flex">
+									<div class="col-sm-6 col-6 text-center header-text-warper">
+										<h6>Order & Product Details</h6>
+									</div>
+								</div>
+								<!-- For Dekstop & mobile view -->
+								<div class="row m-auto justify-content-center d-md-flex d-sm-block d-block">
+									<div class="col-sm-12 py-1" style="border: solid 2px darkcyan; border-radius: 5px; overflow: auto;">
+										<div class="row">
+											<div class="col-sm-12 mt-1" align="center">
+												<h5 style="color: darkolivegreen;">Product List</h5>
+												<hr>
+											</div>
+											<div class="table-responsive-lg table-responsive-md table-responsive-sm">
+												<table class="table table-sm table-bordered mt-1">
+													<thead>
+														<tr>
+															<th><small>Product</small></th>
+															<th><small>SKU Code</small></th>
+															<th><small>QTY</small></th>
+															<th><small>Price</small></th>
+															<th><small>CGST</small></th>
+															<th><small>SGST</small></th>
+															<th><small>IGST</small></th>
+															<th><small>HSN Code</small></th>
+															<th><small>Cess Amount</small></th>
+															<th><small>Total Amount</small></th>
+															<th></th>
+															<th></th>
+														</tr>
+													</thead>
+													<tbody id="d_field">
+														<tr>
+															<td><input type="text" name="product[]" id="product_1" class="form-control form-control-sm" placeholder="Product Name" required></td>
+															<td><input type="text" name="sku[]" id="sku_1" class="form-control form-control-sm" placeholder="sku code"></td>
+															<td><input type="text" name="qty[]" id="qty_1" class="form-control form-control-sm" placeholder="QTy" required></td>
+															<td><input type="text" name="price[]" id="price_1" class="form-control form-control-sm" placeholder="Price" required></td>
+															<td><input type="text" name="cgst[]" id="cgst_1" class="form-control form-control-sm" placeholder="CGST Amt"></td>
+															<td><input type="text" name="sgst[]" id="sgst_1" class="form-control form-control-sm" placeholder="SGST Amt"></td>
+															<td><input type="text" name="igst[]" id="igst_1" class="form-control form-control-sm" placeholder="IGST Amt"></td>
+															<td><input type="text" name="hsn[]" id="hsn_1" class="form-control form-control-sm" placeholder="HSN Code"></td>
+															<td><input type="text" name="cess_amt[]" id="cess_1" class="form-control form-control-sm" placeholder="Cess Amount"></td>
+															<td><input type="text" name="total_amt[]" id="total_1" class="form-control form-control-sm" placeholder="₹0.00" required="required"></td>
+															<td><button type="button" class="btn btn-sm btn-outline-success calculate" id="1"><i class="fa-solid fa-right-to-bracket"></i></button></td>
+															<td><button type="button" class="btn btn-sm btn-outline-warning" id="increse">+</button></td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="row m-auto justify-content-center">
+									<div class="col-lg-12 col-md-12 col-sm-12 col-12 mt-2 header-text-warper">
+										<div class="form-check">
+											<input type="checkbox" name="true_invoice" id="true_invoice" class="form-check-input">
+											<label class="form-check-label" for="checkbox label"><small style="color: darkolivegreen;">If you want to add additional charges then check here</small></label>
+										</div>
+									</div>
+									<div id="extra_charges" style="display: none">
+										<div class="row m-auto justify-content-center">
+											<div class="py-1" style="border: solid darkcyan 1px; border-radius: 5px;">
+												<div class="col-md-12">
+													<div class="row">
+														<div class="col-sm-12 mt-1" align="center">
+															<h6 style="color: darkolivegreen;">Add Additional Charges</h6>
+															<hr>
+														</div>
+													</div>
+												</div>
+												<table class="table table-sm table-bordered mt-1">
+													<thead>
+														<tr>
+															<th width="35%"><small>Perticulers</small></th>
+															<th width="15%"><small>Amount</small></th>
+															<th width="10%"></th>
+														</tr>
+													</thead>
+													<tbody id="t_field">
+														<tr>
+															<td><input type="text" name="add_charge[]" class="form-control-sm form-control" placeholder="Additional charges Perticulars"></td>
+															<td><input type="text" name="add_amt[]" class="form-control-sm form-control" placeholder="₹ 00.00"></td>
+															<td><button type="button" class="btn btn-outline-success btn-sm" id="row_plus">+</button></td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="row m-auto mt-2 justify-content-center">
+									<div class="col-lg-3 col-md-3 col-sm-12 col-12">
+										<div class="form-group custom-input-field">
+											<label for="Weight">Weight</label>
+											<input type="text" class="form-control-sm custom-input" name="actual_weight" id="actual_weight" placeholder="Product Weight">
+											<span id="weight_error"></span>
+										</div>
+									</div>
+									<div class="col-lg-3 col-md-3 col-sm-12 col-12">
+										<div class="form-group custom-input-field">
+											<label for="Length">Length</label>
+											<input type="text" class="form-control-sm custom-input" name="length" id="length" placeholder="Length">
+											<span id="length_error"></span>
+										</div>
+									</div>
+
+									<div class="col-lg-3 col-md-3 col-sm-12 col-12">
+										<div class="form-group custom-input-field">
+											<label for="width">Width</label>
+											<input type="text" class="form-control-sm custom-input" name="width" id="width" placeholder="Width">
+											<span id="width_error"></span>
+										</div>
+									</div>
+									<div class="col-lg-3 col-md-3 col-sm-12 col-12">
+										<div class="form-group custom-input-field">
+											<label for="Height">Height</label>
+											<input type="text" class="form-control-sm custom-input" name="height" id="height" placeholder="Height">
+											<span id="height_error"></span>
+										</div>
+									</div>
+									<!--<div class="col-lg-3 col-md-3 col-sm-12 col-12">
+										<div class="form-group custom-input-field">
+											<label for="OrderType">Order Type</label>
+											<select class="form-control-sm custom-select-input" name="order_type" id="order_type">
+												<option value="" selected>Choose Order type</option>
+												<option value="Forward">Forward</option>
+												<option value="Reverse">Reverse</option>
+											</select>
+											<span id="order_error">empty</span>
+										</div>
+									</div>
+									<div class="col-lg-3 col-md-3 col-sm-12 col-12">
+										<div class="form-group custom-input-field">
+											<label for="OrderMode">Order Mode</label>
+											<select class="form-control-sm custom-select-input" name="order_mode" id="order_mode">
+												<option value="" selected>Choose mode</option>
+												<option value="Surface">Surface</option>
+												<option value="Air">Air</option>
+											</select>
+											<datalist id="order-mode">
+
+											</datalist>
+											<span id="mode_error">empty</span>
+										</div>
+									</div>
+									<div class="col-lg-3 col-md-3 col-sm-12 col-12">
+										<div class="form-group custom-input-field">
+											<label for="Payment">Payment Type</label>
+											<select class="form-control-sm custom-select-input" name="pay_type" id="pay_type">
+												<option value="" selected>Choose One</option>
+												<option value="Prepaid">Prepaid</option>
+												<option value="COD">COD</option>
+											</select>
+											<span id="payment_error"></span>
+										</div>
+									</div>
+									<div class="col-lg-3 col-md-3 col-sm-12 col-12">
+										<div class="form-group custom-input-field" id="cod_tag" style="display: none;">
+											<label for="CODAmount">COD Amount</label>
+											<input type="text" class="form-control-sm custom-input" name="cod" id="cod" placeholder="COD Amount">
+										<span id="cod_error"></span>
+										</div>
+									</div>-->
+								</div>
+								<!-- For Dekstop View-->
+								<div class="row m-auto mt-2 justify-content-start d-md-block d-none">
+									<div class="col-lg-3 col-md-4 header-text-warper">
+										<h6>Seller Information</h6>
+									</div>
+								</div>
+								<!-- For Mobile View-->
+								<div class="row m-auto mt-2 justify-content-center d-md-none d-flex">
+									<div class="col-sm-6 col-6 text-center header-text-warper">
+										<h6>Seller Information</h6>
+									</div>
+								</div>
+								<!-- For Dekstop & mobile view -->
+								<div class="row m-auto mt-2 justify-content-start">
+									<div class="col-lg-6 col-md-6 col-sm-12 col-12">
+										<div class="form-group custom-input-field">
+											<label for="PickupWarehouse">PickUp Address</label>
+											<select class="form-control-sm custom-select-input" name="pick_address" id="pick_address">
+												<option value="" selected>Select Pickup warehouse</option>
+												
+											</select>
+											<span id="pickup_error"></span>
+										</div>
+									</div>
+									<!--<div class="col-lg-6 col-md-6 col-sm-12 col-12">
+										<div class="form-group custom-input-field">
+											<label for="SellerAddress">Seller Address</label>
+											<input type="text" class="form-control-sm custom-input" name="seller_address" id="seller_address" placeholder="Seller Address">
+											<span id="seller_address_error"></span>
+										</div>
+									</div>-->
+								</div>
+								<!-- For Dekstop View-->
+								<div class="row m-auto mt-2 justify-content-start d-md-block d-none">
+									<div class="col-lg-3 col-md-4 header-text-warper">
+										<h6>Invoiceing</h6>
+									</div>
+								</div>
+								<!-- For Mobile View-->
+								<div class="row m-auto mt-2 justify-content-center d-md-none d-flex">
+									<div class="col-sm-6 col-6 text-center header-text-warper">
+										<h6>Invoiceing</h6>
+									</div>
+								</div>
+								<!-- For Dekstop & mobile view -->
+								<div class="row m-auto mt-2 justify-content-center">
+									<div class="col-lg-3 col-md-3 col-sm-12 col-6">
+										<div class="form-group custom-input-field">
+											<label for="Order ID">Order ID</label>
+											<input type="text" class="form-control-sm custom-input" name="order_id" id="order_id" placeholder="Order ID">
+											<span id="orderID_error"></span>
+										</div>
+									</div>
+									<div class="col-lg-3 col-md-3 col-sm-12 col-6">
+										<div class="form-group custom-input-field">
+											<label for="InvoiceValue">Invoice Value</label>
+											<input type="text" class="form-control-sm custom-input" name="invoice_value" id="invoice_value" placeholder="Total Invoice Value">
+											<span id="invoice_amount_error"></span>
+										</div>
+									</div>
+									<div class="col-lg-3 col-md-3 col-sm-12 col-6">
+										<div class="form-group custom-input-field">
+											<label for="InvoiceNo">Invoice No</label>
+											<input type="text" class="form-control-sm custom-input" name="invoice_no" id="invoice_no" placeholder="Invoice No/ Road challan No">
+											<span id="invoice_no_error"></span>
+										</div>
+									</div>
+									<div class="col-lg-3 col-md-3 col-sm-12 col-6">
+										<div class="form-group custom-input-field">
+											<label for="InvoiceDate">Invoice Date</label>
+											<input type="date" class="form-control-sm custom-input" name="invoice_date" id="invoice_date" placeholder="Invoice Date">
+											<span id="invoice_date_error"></span>
+										</div>
+									</div>
+								</div>
+								<div class="row m-auto mt-2 justify-content-center" style="display: none;" id="waybill_tag">
+									<div class="col-lg-6 col-md-6 col-sm-12 col-6">
+										<div class="form-group custom-input-field">
+											<label for="GSTIN No">Gst No</label>
+											<input type="text" class="form-control-sm custom-input" name="gst_id" id="gst_id" placeholder="GSTIn No">
+											<span id="GST_error"></span>
+										</div>
+									</div>
+									<div class="col-lg-6 col-md-6 col-sm-12 col-6">
+										<div class="form-group custom-input-field">
+											<label for="Waybill_no">Way Bill No</label>
+											<input type="text" class="form-control-sm custom-input" name="wayBill" id="wayBill">
+											<span id="waybill_error"></span>
+										</div>
+									</div>
+									<div class="col-lg-4 col-md-4 col-sm-12 col-6">
+										<div class="form-group custom-input-field">
+											<label for="Gst-Amount">GST Amount</label>
+											<input type="text" name="gst_amount" id="gst_amount" class="form-control-sm custom-input">
+											<span id="gst_amount_error"></span>
+										</div>
+									</div>
+									<div class="col-lg-4 col-md-4 col-sm-12 col-6">
+										<div class="form-group custom-input-field">
+											<label for="comodity_amt">Comodity Amount</label>
+											<input type="text" name="comodity_amount" id="comodity_amount" class="form-control-sm custom-input">
+											<span id="comodity_amt_error"></span>
+										</div>
+									</div>
+									<div class="col-lg-4 col-md-4 col-sm-12 col-6">
+										<div class="form-group custom-input-field">
+											<label for="ewbn_date">Waybill Issuing date</label>
+											<input type="date" name="ewbn_date" id="ewbn_date" class="form-control-sm custom-input">
+											<span id="ewbn_date_error"></span>
+										</div>
+									</div>
+								</div>
+								<!-- For Dekstop View-->
+								<div class="row m-auto mt-2 justify-content-start d-md-block d-none">
+									<div class="col-lg-3 col-md-4 header-text-warper">
+										<h6>Check box for Dangerous Goods, Fragil Items and Plastics Packaging</h6>
+									</div>
+								</div>
+								<!-- For Mobile View-->
+								<div class="row m-auto mt-2 justify-content-center d-md-none d-flex">
+									<div class="col-sm-6 col-6 text-center header-text-warper">
+										<h6>Check box for Packaging</h6>
+									</div>
+								</div>
+								<!-- For Dekstop & mobile view -->
+								<div class="row m-auto mt-2 justify-content-center">
+									<div class="col-lg-3 col-md-3 col-sm-12 col-12">
+										<div class="form-check">
+											<input type="checkbox" name="danger_goods" id="danger_goods" class="form-check-input">
+											<label class="form-check-label" for="Danger-Goods"><small>If Consignment is Dangerous</small></label>
+										</div>
+									</div>
+									<div class="col-lg-3 col-md-3 col-sm-12 col-12">
+										<div class="form-check">
+											<input type="checkbox" name="fragil_item" id="fragil_item" class="form-check-input">
+											<label class="form-check-label" for="Fragil-Item">If Consignment is Fragil</label>
+										</div>
+									</div>
+									<div class="col-lg-6 col-md-6 col-sm-12 col-12">
+										<div class="form-check">
+											<input type="checkbox" name="plastic_packet" id="plastic_packet" class="form-check-input">
+											<label class="form-check-label" for="Plastic-packaging">If Consignment into Plastic Packaging</label>
+										</div>
+									</div>
+								</div>
+								<!-- For Dekstop &mobile View -->
+								<div class="row m-auto justify-content-center mt-4">
+									<div class="col-lg-6 col-md-6 col-sm-12 col-12">
+										<button type="submit" class="btn btn-sm custom-submit-btn" id="submit_btn">Submit</button>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+					<div class="col-lg-2 col-md-2 d-md-block d-none">
+						<div class="mt-4 m-auto" style="border: solid 2px darkslategray; padding: 10px 5px;">
+							<div class="inst-content">
+								<h5>Shipping Instruction</h5>
+								<h6>Add your Buyer Details</h6>
+								<p>While entering your buyer details, please make sure you are entering the correct <b>phone number</b> and <b>email ID</b>. We will use this information in all future communication with your buyer</p>
+								<h6>Enter your buyer’s complete address</h6>
+								<p>Please enter the correct address of your buyer here.</p>
+								<p>Note: Mention the company name if it’s a B2B order.</p>
+								<h6>Tip</h6>
+								<p> Search for a nearby landmark to find the correct address.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+            </div>
+        </section>
+    </div>
+	<section class="modal-pop-up" id="modal">
+		<div class="modal">
+			<div class="modal_container">
+				<img src="image/1490.gif" alt="Loading Image">
+				<h1>Processing...</h1>
+			</div>
+		</div>
+	</section>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="javascript/custom.js"></script>
+	<script src="javascript/modal.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			// Increment Product Table..
+			var ran_id = 1;
+			var id = 1;
+			$('#increse').click(function(){
+				ran_id++;
+				id++;
+				var html = '<tr id="row_data'+ran_id+'"><td><input type="text" name="product[]" id="product_'+ran_id+'" class="form-control form-control-sm" placeholder="Product Name" required></td><td><input type="text" name="sku[]" id="sku_'+ran_id+'" class="form-control form-control-sm" placeholder="sku code"></td><td><input type="text" name="qty[]" id="qty_'+ran_id+'" class="form-control form-control-sm" placeholder="QTy" required></td><td><input type="text" name="price[]" id="price_'+ran_id+'" class="form-control form-control-sm" placeholder="Price" required></td><td><input type="text" name="cgst[]" class="form-control form-control-sm" id="cgst_'+ran_id+'" placeholder="CGST Amt"></td><td><input type="text" name="sgst[]" class="form-control form-control-sm" id="sgst_'+ran_id+'" placeholder="SGST Amt"></td><td><input type="text" name="igst[]" id="igst_'+ran_id+'" class="form-control form-control-sm" placeholder="IGST Amt"></td><td><input type="text" name="hsn[]" id="hsn_'+ran_id+'" class="form-control form-control-sm" placeholder="HSN Code"></td><td><input type="text" name="cess_amt[]" id="cess_'+ran_id+'" class="form-control form-control-sm" placeholder="Cess Amount"></td><td><input type="text" name="total_amt[]" id="total_'+ran_id+'" class="form-control form-control-sm" placeholder="₹0.00" required="required"></td><td><button type="button" class="btn btn-sm btn-outline-success calculate" id="'+ran_id+'"><i class="fa-solid fa-right-to-bracket"></i></button></td><td><button type="button" class="btn btn-sm btn-outline-danger remove" id="'+ran_id+'">-</button></td></tr>';
+				$('#d_field').append(html);
+				//console.log("Row ID: "+ran_id+", id: "+id);
+			});
+			// Delete Row
+			$(document).on('click', '.remove', function(){
+				var remove_id = $(this).attr("id");
+				$('#row_data'+remove_id+'').remove();
+			});
+			// Calculate all input Value
+			$(document).on('click', '.calculate', function(){
+				var product= $('#product_'+ran_id+'').val();
+				var qty= $('#qty_'+ran_id+'').val();
+				var price= $('#price_'+ran_id+'').val();
+				var cgst= $('#cgst_'+ran_id+'').val();
+				var sgst= $('#sgst_'+ran_id+'').val();
+				var igst= $('#igst_'+ran_id+'').val();
+				var cess= $('#cess_'+ran_id+'').val();
+				if(product== ""){
+					alert("Check Product in row "+ran_id);
+				}else if(qty== ""){
+					alert("Check Quantity in row "+ran_id);
+				}else if(price== ""){
+					alert("Check Price in row "+ran_id);
+				}else{
+					var total= (qty*price);
+					$('#total_'+ran_id+'').val(total);
+					$('#total_'+ran_id+'').attr('readonly', 'readonly');
+				}
+				console.log(total);
+			});
+			
+			// increment Others Charges Table
+			$('#row_plus').click(function(){
+				id++;
+				var html = '<tr id="row_data'+id+'"><td><input type="text" name="add_charge[]" class="form-control-sm form-control" placeholder="Additional charges Perticulars"></td><td><input type="text" name="add_amt[]" class="form-control-sm form-control"></td><td><button type="button" class="btn btn-outline-danger del_row btn-sm" id="'+id+'">-</button></td></tr>';
+				$('#t_field').append(html);
+			});
+
+			$(document).on('click', '.del_row', function(){
+				var remove_id = $(this).attr('id');
+				$('#row_data'+remove_id+'').remove();
+			});
+			
+			// retrive Multiple input tag id value
+			
+			
+			
+			// Hide And Show Extra Charges Tag
+			$('input[name="true_invoice"]').click(function(){
+				var invoice = $(this).is(':checked');
+				if (invoice === true) {
+					$('#extra_charges').show();
+				}else{
+					$('#extra_charges').hide();
+				}
+			});
+			// Hide And Show GST Invoice Tag
+			$('#invoice_value').keyup(function(){
+				var i_value = $(this).val();
+				if(i_value >= 50000){
+					$('#waybill_tag').show();
+				}else{
+					$('#waybill_tag').hide();
+				}
+			});
+			// Fetch Data City State From Data Base..
+			/**$('#pincode').keyup(function(){
+				var key_value = $(this).val();
+				if (key_value.length == 6) {
+					$.ajax({
+						url: "../php-data-source/pincode_data_fetch.php",
+						type: "post",
+						data: {
+							key_value: key_value
+						},
+						cache: false,
+						success: function(rcv_data){
+							var rcv_data = JSON.parse(rcv_data);
+							if (rcv_data.Http_code == "200") {
+								$('#city_name').val(rcv_data.city);
+								$('#state').val(rcv_data.state);
+							}else if (rcv_data.Http_code == "201") {
+								alert(rcv_data.Massage);
+							}
+						}
+					});
+				}
+			});**/
+			// JQuery For COD Html Tag Open And Close
+			$('#pay_type').on('change', function(){
+				var payment = $(this).val();
+				if (payment == "COD") {
+					$('#cod_tag').show();
+				}else{
+					$('#cod_tag').hide();
+				}
+			});
+			// Jquery for Form data submited
+			$('#booking_form').submit(function(new_event){
+				new_event.preventDefault();
+				var error = 0;
+				var buyer = $('#buyer_name').val();
+				var contact = $('#primary_contact').val();
+				var email = $('#email_id').val();
+				var address_one = $('#address_one').val();
+				var pincode = $('#pincode').val();
+				var city = $('#city_name').val();
+				var state = $('#state').val();
+				var actual = $('#actual_weight').val();
+				var length = $('#length').val();
+				var width = $('#width').val();
+				var height = $('#height').val();
+				var order_type = $('#order_type').val();
+				var order_mode = $('#order_mode').val();
+				var pay_type = $('#pay_type').val();
+				var cod_amount = $('#cod').val();
+				var Order_ID = $('#order_id').val();
+				var invoice_value = $('#invoice_value').val();
+				var invoice_no = $('#invoice_no').val();
+				var invoice_date = $('#invoice_date').val();
+				var gst_id = $('#gst_id').val();
+				var wayBill = $('#wayBill').val();
+				var gst_amount = $('#gst_amount').val();
+				var comodity_amount = $('#comodity_amount').val();
+				var ewbn_date = $('#ewbn_date').val();
+				var pick_location = $('#pick_address').val();
+				var return_location = $('#return_address').val();
+				// Condition For Buyer Name
+				if(buyer== ""){
+					$('#buyer_error').show();
+					$('#buyer_error').text("Buyer Name is Blank");
+					error++;
+				}else if(buyer.search(/[!\@\#\$\%\^\&\*\_\|]/) > 0){
+					$('#buyer_error').show();
+					$('#buyer_error').text("Can not use any special Charechter");
+					error++;
+				}else{
+					$('#buyer_error').hide();
+				}
+				// Condition For Buyer Contact
+				if(contact == ""){
+					$('#contct_error').show();
+					$('#contct_error').text("Buyer Name is Blank");
+					error++;
+				}else if(contact.length != 10){
+					$('#contct_error').show();
+					$('#contct_error').text("Check Buyer Contact No");
+					error++;
+				}else{
+					$('#contct_error').hide();
+				}
+				// Condition For Buyer Email
+				if(email== ""){
+					$('#email_error').show();
+					$('#email_error').text("Buyer Email is Blank");
+					error++;
+				}else{
+					$('#email_error').hide();
+				}
+				// Condition For Shipping Address
+				if(address_one== ""){
+					$('#address_error').show();
+					$('#address_error').text("Shipping Address is Blank");
+					error++;
+				}else if(address_one.search(/[!\@\#\$\%\^\&\*\_\|]/) > 0){
+					$('#address_error').show();
+					$('#address_error').text("Can not use any special Charechter");
+					error++;
+				}else{
+					$('#address_error').hide();
+				}
+				// Condition For pincode 
+				if(pincode== ""){
+					$('#zip_error').show();
+					$('#zip_error').text("Pincode is Blank");
+					error++;
+				}else if(pincode.length != 6){
+					$('#zip_error').show();
+					$('#zip_error').text("Check Your Shipping Pincode");
+					error++;
+				}else{
+					$('#zip_error').hide();
+				}
+				// Condition For City
+				if(city== ""){
+					$('#city_error').show();
+					$('#city_error').text("City Name is Blank");
+					error++;
+				}else{
+					$('#city_error').hide();
+				}
+				// Condition For State
+				if(state== ""){
+					$('#state_error').show();
+					$('#state_error').text("State Name is Blank");
+					error++;
+				}else{
+					$('#state_error').hide();
+				}
+				// Condition For Actual Weight 
+				if(actual== ""){
+					$('#weight_error').show();
+					$('#weight_error').text("Actual Weight is Blank");
+					error++;
+				}else if(actual.search(/[.]/) > 0){
+					$('#weight_error').show();
+					$('#weight_error').text("Weight Must be Used in GMS Format");
+					error++;
+				}else{
+					$('#weight_error').hide();
+				}
+				// Condition For length
+				if(length== ""){
+					$('#length_error').show();
+					$('#length_error').text("Length is Blank");
+					error++;
+				}else if(length.search(/[.]/) > 0){
+					$('#length_error').show();
+					$('#length_error').text("Can not be used . in size measures");
+					error++;
+				}else{
+					$('#length_error').hide();
+				}
+				// Condition For Width
+				if(width== ""){
+					$('#width_error').show();
+					$('#width_error').text("Length is Blank");
+					error++;
+				}else if(width.search(/[.]/) > 0){
+					$('#width_error').show();
+					$('#width_error').text("Can not be used . in size measures");
+					error++;
+				}else{
+					$('#width_error').hide();
+				}
+				// Condition For Height
+				if(height== ""){
+					$('#height_error').show();
+					$('#height_error').text("Height is Blank");
+					error++;
+				}else if(height.search(/[.]/) > 0){
+					$('#height_error').show();
+					$('#height_error').text("Can not be used . in size measures");
+					error++;
+				}else{
+					$('#height_error').hide();
+				}
+				// Condition For Order Type
+				if(order_type== ""){
+					$('#order_error').show();
+					$('#order_error').text("Choose Your Order Type");
+					error++;
+				}else{
+					$('#order_error').hide();
+				}
+				// Condition For Order Mode
+				if(order_mode== ""){
+					$('#mode_error').show();
+					$('#mode_error').text("Choose Transit Mode");
+					error++;
+				}else{
+					$('#mode_error').hide();
+				}
+				// Condition For Payment Type
+				if(pay_type== ""){
+					$('#payment_error').show();
+					$('#payment_error').text("Choose Your Payment Type");
+					error++;	
+				}else{
+					$('#payment_error').hide();
+				}
+				// Condition For Cod Amount
+				if(pay_type== "COD"){
+					if(cod_amount== ""){
+						$('#cod_error').show();
+						$('#cod_error').text("Type is Your COD amount");
+						error++;
+					}else{
+						$('#cod_error').hide();
+					}
+				}
+				// Condition For Order ID
+				if(Order_ID== ""){
+					$('#orderID_error').show();
+					$('#orderID_error').text("Order ID is Blank");
+					error++;
+				}else{
+					$('#orderID_error').hide();
+				}
+				// Condition For Invoice Value
+				if(invoice_value== ""){
+					$('#invoice_amount_error').show();
+					$('#invoice_amount_error').text("Order ID is Blank");
+					error++;
+				}else{
+					$('#invoice_amount_error').hide();
+				}
+				// Condition For Invoice No
+				if(invoice_no== ""){
+					$('#invoice_no_error').show();
+					$('#invoice_no_error').text("Invoice No is Reqired");
+					error++;
+				}else{
+					$('#invoice_no_error').hide();
+				}
+				// Condition For Invoice Date
+				if(invoice_date== ""){
+					$('#invoice_date_error').show();
+					$('#invoice_date_error').text("Invoice Issuing Date is Reqired");
+					error++;
+				}else{
+					$('#invoice_date_error').hide();
+				}
+				// Condition For GST ID
+				if(invoice_value >= "50000"){
+				   if(gst_id== ""){
+						$('#GST_error').show();
+						$('#GST_error').text("GST No is Reqired above 50000 value");
+						error++;
+					}else if(gst_id.length != 15){
+						$('#GST_error').show();
+						$('#GST_error').text("Check Your GST No");
+						error++;
+					}else{
+						$('#GST_error').hide();
+					}
+					// Condition For Waybill
+					if(wayBill== ""){
+						$('#waybill_error').show();
+						$('#waybill_error').text("Waybill No is Reqired above 50000 value");
+						error++;
+					}else{
+						$('#waybill_error').hide();
+					}
+					// Condition For GST Amount
+					if(gst_amount== ""){
+						$('#gst_amount_error').show();
+						$('#gst_amount_error').text("GST Amount is Required");
+						error++;
+					}else{
+						$('#gst_amount_error').hide();
+					}
+					// Condition For Commodity Amount
+					if(comodity_amount== ""){
+						$('#comodity_amt_error').show();
+						$('#comodity_amt_error').text("Commodity Amount is Required");
+						error++;
+					}else{
+						$('#comodity_amt_error').hide();
+					}
+					// Condition For E-waybill Date
+					if(ewbn_date== ""){
+						$('#ewbn_date_error').show();
+						$('#ewbn_date_error').text("E-waybill Date is Required");
+						error++;
+					}else{
+						$('#ewbn_date_error').hide();
+					}
+					
+				}
+				// Condition For Pick-up Location 
+				if(pick_location== ""){
+					$('#pickup_error').show();
+					$('#pickup_error').text("Pick-up Location Must Be Required");
+					error++;
+				}else{
+					$('#pickup_error').hide();
+				}
+				// Condition For Return Location
+				if(return_location== ""){
+					$('#return_error').show();
+					$('#return_error').text("Return Location Must Be Required");
+					error++;
+				}else{
+					$('#return_error').hide();
+				}
+				console.log(error);
+				if(error== 0){
+					console.log("Success");
+					$('#modal').addClass('visibility');
+					$('#body').addClass('show_modal');
+					setTimeout(function(){
+						$('#modal').removeClass('visibility');
+						$('#body').removeClass('show_modal');
+						$('.success').show();
+						$('.success p').text("Submitted Success");
+					}, 5000);
+				}
+			});
+		});
+	</script>
+</body>
+</html>
